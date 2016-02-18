@@ -1,0 +1,1 @@
+﻿The only Javascript files that should live in this folder are those added by nuget and our Type Script typings.

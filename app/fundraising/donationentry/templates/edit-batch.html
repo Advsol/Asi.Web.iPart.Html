@@ -1,0 +1,36 @@
+﻿<div ng-form="batchesForm" >
+    <div class="PanelField Left">
+        <div style="display: inline;">
+            <label for="SelectedBatch">Batch</label>
+        </div>
+        <div class="PanelFieldValue">
+            <select id="SelectedBatch" name="SelectedBatch" data-ng-model="vm.openBatches.selectedBatch" ng-change="vm.selectBatch();" data-ng-options="batch.value as batch.text for batch in vm.openBatches.batchSelectList"></select>
+        </div>
+        <div class="PanelFieldValue"> 
+            <input type="button" id="PostBatchButton"  value="Post Batch" class="TextButton PrimaryButton" style="display: none">
+            <input type="button" ng-hide="vm.openBatches.selectedBatch" ng-disabled="batchesForm.$invalid" ng-click="batchesForm.$valid && vm.addNewBatch()" id="CreateBatchButton" value="Create Batch" class="TextButton PrimaryButton">
+            <!--To get the form validation to fire this needs to be a submit button aspnetForm.$valid-->
+        </div>
+    </div>
+    <div class="PanelField Left" ng-hide="vm.openBatches.selectedBatch">
+        <div style="display: inline;">
+            <label for="BatchDate" class="Required">Batch Date</label>
+        </div>
+        <div class="PanelFieldValue">
+            <input type="date" name="batchDate" data-ng-model="vm.openBatches.batchDate"  class="text-box single-line" ng-required="true" required="Required MSG - hi" id="BatchDate">
+            <span class="ValidationError" ng-show="batchesForm.batchDate.$error.required"> Required!</span>
+            <span class="ValidationError" ng-show="batchesForm.batchDate.$error.date"> Not a valid date!</span>
+        </div>
+    </div>
+ <!--  {{vm | json}}-->
+</div>
+
+<!--<a ui-sref="selectBatch.editDonation({batchId:'anyvalue'})">Show Edit Batch Form</a>-->
+<!--Edit the selected batch-->
+<div ui-view></div>
+
+
+
+
+
+

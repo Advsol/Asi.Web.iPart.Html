@@ -1,0 +1,57 @@
+﻿    <accordion close-others="true">
+        <accordion-group data-ng-repeat="donation in vm.donations.donations">
+            <accordion-heading  >
+				<div data-ng-hide="donation.isNew">
+		            <span class="col-xs-3">{{donation.donor.name}}</span>
+		            <span class="col-xs-5">{{donation.giftItem.name}}</span>
+		            <span class="col-xs-2">{{donation.donationType}}</span>
+		            <span class="col-xs-2">{{donation.displayAmount}}</span>             
+        		</div>					
+				<span data-ng-show="donation.isNew">New</span>
+				
+            </accordion-heading>
+				<div data-ng-form="donationForm" class="col-xs-6">
+				    <div class="PanelField Left">
+				        <div>
+				            <label for="donationType">Donation Type</label>
+				        </div>
+				        <div class="PanelFieldValue">
+				            <input name="donationType" data-ng-model="donation.donationType"></input>
+				        </div>
+				    </div>	
+				    <div class="PanelField Left">
+				        <div>
+				            <label for="userId" class="Required">User ID</label>
+				        </div>
+				        <div class="PanelFieldValue">
+				            <input name="userId" data-ng-model="donation.imisId"  data-ng-required="true"></input>
+							<span class="ValidationError" data-ng-show="donationForm.userId.$error.required"> Required!</span>
+	
+							<br>
+				        </div>
+				    </div>
+				    <div class="PanelField Left">
+				        <div>
+				            <label for="itemCode" class="Required">Gift Item</label>
+				        </div>
+				        <div class="PanelFieldValue">
+				            <input name="itemCode" data-ng-model="donation.itemCode" data-ng-required="true"></input>
+				        </div>
+				    </div>
+					<input type="button" class="btn btn-default btn-sm" data-ng-show="donation.isNew" value="Add" data-ng-click="donationForm.$valid && vm.addDonation(donation)"></input>	
+				</div>
+				<div class="col-xs-6">
+					<div id="selectedParty" class="CalloutBubble" style="">
+					            <div id="partyName"><strong>{{donation.donor.name}}</strong></div>
+					            <div id="partyAddress" data-ng-bind-html="donation.donor.fullAddress"></div>
+					            <div id="partyEmail"><a data-ng-href="donation.donor.email">{{donation.donor.email}}</a></div>
+					</div>
+				</div>
+				
+        </accordion-group>
+    </accordion>
+
+
+
+
+

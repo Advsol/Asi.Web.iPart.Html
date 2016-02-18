@@ -1,0 +1,17 @@
+﻿
+<script src="~/Areas/iPartConfiguration/app.module.js" defer></script>
+<script src="~/Areas/iPartConfiguration/MyController.js" defer></script>
+
+<!--The values [x-contentKey] [x-contentItemKey] will be parsed by imis and replaced with the keys for the iPart
+    when the iPart is used within RiSE-->
+<div data-ng-controller="MyController as vm" data-asi-contentkey="[x-contentKey]" data-asi-contentitemkey="[x-contentItemKey]">
+    <label for="ContentKey">ContentKey</label>
+    <input data-ng-model="vm.contentKey" id="ContentKey" />
+    <label for="ContentItemKey">ContentItemKey</label>
+    <input data-ng-model="vm.contentItemKey" id="ContentItemKey" />
+
+    <button type="button" data-ng-click="vm.getSettings();">Get Settings</button>
+    <br/>
+
+    Settings for this iPart: <pre>{{vm.settings | json}}</pre>
+</div>
