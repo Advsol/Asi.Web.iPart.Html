@@ -287,4 +287,5 @@ $RECYCLE.BIN/
 /Examples/ipartconfiguration/**/*.js.map
 /Examples/helloworld/**/*.js
 /Examples/helloworld/**/*.js.map
+Scripts/bundle/**/*.*
 Scripts/bundle/*.*
