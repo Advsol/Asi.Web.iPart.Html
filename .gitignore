@@ -289,3 +289,4 @@ $RECYCLE.BIN/
 /Examples/helloworld/**/*.js.map
 Scripts/bundle/**/*.*
 Scripts/bundle/*.*
+Scripts/angular-animate.min.js
