@@ -1,0 +1,16 @@
+﻿<script src="~/Areas/innov/JsonDemo/app.module.js" defer></script>
+<script src="~/Areas/innov/JsonDemo/ExampleService.js" defer></script>
+<script src="~/Areas/innov/JsonDemo/index.myController.js" defer></script>
+<script src="~/Areas/innov/JsonDemo/model.js" defer></script>
+
+
+<div data-ng-controller="MyController as vm" data-asi-contentkey="[x-contentKey]" data-asi-contentitemkey="[x-contentItemKey]">
+    <button type="button" data-ng-click="vm.getSettings();">Get Settings</button>
+   
+    <h3 ng-style="{'color':vm.settings.color}">{{vm.settings.iPartHeader}}</h3>
+
+    <span ng-style="{'color':vm.settings.color}">The colour of this text is determined by our settings</span>
+    <br/>
+
+    Settings for this iPart: <pre>{{vm.settings | json}}</pre>
+</div>

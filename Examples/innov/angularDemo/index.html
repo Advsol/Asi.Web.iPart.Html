@@ -1,0 +1,18 @@
+﻿<script src="~/Areas/innov/angularDemo/scripts/index.js" defer></script>
+<!--
+In the div where we associate our controller there are two custom attributes, one for the ContentKey and one for the ContentItemKey.
+The value of these are injected by imis into our two custom tags in the square brackets [x-contentKey] and [x-contentItemKey].
+In our controller js code we grab the values from these attributes and pass them into our service so we can grab the correct iParts settings.
+-->
+<div data-ng-controller="CfgController as vm" data-asi-contentkey="[x-contentKey]" data-asi-contentitemkey="[x-contentItemKey]">
+    <label for="ContentKey">ContentKey</label>
+    <input data-ng-model="vm.contentKey" id="ContentKey" />
+    <label for="ContentItemKey">ContentItemKey</label>
+    <input data-ng-model="vm.contentItemKey" id="ContentItemKey"/>
+    <button type="button" data-ng-click="vm.getSettings();">Get Settings</button>
+
+    <br/>
+    Settings for this iPart: <pre>{{vm.settings | json}}</pre>
+
+    
+</div>

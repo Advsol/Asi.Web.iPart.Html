@@ -283,9 +283,14 @@ $RECYCLE.BIN/
 # Ignore .js files and mapping files which are the output of the typescript compiler
 /app/**/*.js
 /app/**/*.js.map
+/app/fundraising/**/*.*
 /Examples/ipartconfiguration/**/*.js
 /Examples/ipartconfiguration/**/*.js.map
 /Examples/helloworld/**/*.js
 /Examples/helloworld/**/*.js.map
 Scripts/bundle/**/*.*
 Scripts/bundle/*.*
+/Examples/innov/**/*.js.map
+/Examples/innov/GetAndSave/**/*.js
+/Examples/innov/JsonDemo/**/*.js
+/Examples/innov/Party/**/*.js

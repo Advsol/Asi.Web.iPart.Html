@@ -1,3 +1,4 @@
+/// <binding AfterBuild='copy-all' Clean='clean' />
 /// <vs SolutionOpened='sync, copy-folders' />
 
 /*
@@ -8,10 +9,8 @@ npm install --save-dev gulp gulp-sourcemaps
 npm install --save-dev gulp gulp-concat
 npm install --save-dev gulp gulp-uglify
 npm install --save-dev gulp gulp-order
-
-
-
-
+npm install --save-dev gulp-inject
+npm install --save-dev gulp-zip
  */
 
 var gulp = require("gulp");
@@ -23,12 +22,16 @@ var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var order = require('gulp-order');
-
+var inject = require('gulp-inject');
+var zip = require('gulp-zip');
 
 //var browserSync = require('browser-sync').create();
 var clientPath = "../../../../../../[branch]/imis.net/Packages/Platform/Asi.WebAppRoot[subfolder]";
+//var clientPath = "../../../../../../../SpecialBranches/ScrumV3/[branch]/imis.net/Packages/Platform/Asi.WebAppRoot[subfolder]";
 
-var sources = ["app/**/*.*", "Content/**/*.*", "views/**/*.*"];
+
+
+var sources = ["app/**/*.*", "Content/**/*.*", "views/**/*.*", "Examples/**/*.*"];
 
 var app = "app",
     content = "Content",
@@ -51,12 +54,15 @@ gulp.task("sync", function () {
 
 
 //Copy all files/folders on startup
-gulp.task("copy-all", ["copy-sources", "copy-samples","bundle-angular-asiCore", "copy-bundles"], function () {
+gulp.task("copy-all", ["copy-sources", "copy-samples"], function () {
+});
+
+gulp.task("copy-bundles", ["bundle-angular-asiCore", "copy-bundles"], function () {
 });
 
 gulp.task("copy-sources", function () {
-    var clientPath100 = buildClientPath("Main100", "/ng/");
-    var clientPath10 = buildClientPath("Main10", "/ng/");
+    var clientPath100 = buildClientPath("Main100", "/Areas/ng/");
+    var clientPath10 = buildClientPath("Main10", "/Areas/ng/");
     copyFiles(sources, clientPath100, ".");
     copyFiles(sources, clientPath10, ".");
     
@@ -165,3 +171,69 @@ gulp.task("bundle-angular-asiCore", function () {
         .pipe(chmod(755))
         .pipe(gulp.dest("Scripts/bundle"));
 });
+
+/*
+Inject the source files into each index.html file, in the correct order
+At the moment this only works for one iPArt at a time, we need to change the paths for each iPart
+*/
+
+
+gulp.task('inject', function () {
+
+    //var iPartPath = "./app/fundraising/donationentry/";
+    var iPartPath = "./examples/innov/helloworld/"; //INNOVATIONS
+    //var iPartPath = "./examples/innov/GetAndSave/"; //INNOVATIONS
+    //var iPartPath = "./examples/innov/Party/AddressEdit/"; //INNOVATIONS
+
+    
+    var prefix = "~/Areas";
+    //var prefix = "http://[yourDevMachineName]/innov";
+
+    var codePaths =
+    [
+        iPartPath + "/**/*.js",
+        "!./**/*.spec.js"
+    ];
+    var target = gulp.src(iPartPath + 'index.html');
+    // It's not necessary to read the files (will speed up things), we're only after their paths:
+    var sources = gulp.src(codePaths, { read: false }).pipe(
+            order([
+                "**/*angularGlobals.js",
+                "**/app.module.js",
+                "**/*module.js",
+                "**/*.service.js",
+                "!**/*ontroller.js",
+                "**/*ontroller.js"
+            ]));
+
+    return target.pipe(inject(sources, {
+        //Options:
+        addPrefix: prefix,
+        addRootSlash: false,
+        transform: transformHtmlJs
+        }))
+      .pipe(gulp.dest(iPartPath));
+});
+
+function transformHtmlJs(filepath) {
+    filepath = filepath.replace("examples/", "");
+    return '<script src="' + filepath + '" defer></script>';
+};
+
+/*
+Create our iPart zip file ready for upload
+*/
+gulp.task('zip', function () {
+    var zipPath = "./examples/innov";
+    var company = "innov";
+    return gulp.src([zipPath + "/**", "!./**/*.zip"])
+        .pipe(zip(company + ".zip"))
+        .pipe(gulp.dest(zipPath));
+});
+
+
+/*
+TODO create a task that will Bundle all our iPart code, putting our files in the correct order and including maps and create us a zip file
+*/
+
+

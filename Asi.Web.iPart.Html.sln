@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asi.Web.iPart.Html", "Asi.Web.iPart.Html.csproj", "{90F427CB-2BF8-4378-9146-F34FABCE0345}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90F427CB-2BF8-4378-9146-F34FABCE0345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F427CB-2BF8-4378-9146-F34FABCE0345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F427CB-2BF8-4378-9146-F34FABCE0345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F427CB-2BF8-4378-9146-F34FABCE0345}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+﻿<script src="~/Areas/innov/JsonDemo/app.module.js" defer></script>
+<script src="~/Areas/innov/JsonDemo/config.js" defer></script>
+
+<div data-ng-controller="ConfigController" >
+    <div class="PanelField Left">
+        <div style="display:inline;">
+            <label for="MySetting">Header Text</label>
+        </div>
+        <div class="PanelFieldValue">
+            <input type="text" value="" maxlength="100" size="50" id="MySetting" ng-model="serializedSettings.iPartHeader">
+        </div>
+    </div>
+
+    <div class="PanelField Left">
+        <div style="display: inline;">
+            <label for="color">Text Color</label>
+        </div>
+        <div class="PanelFieldValue">
+            <select id="color" ng-model="serializedSettings.color" single>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="PanelField Left">
+        <div style="display:inline;">
+            <label for="MySetting">Header Text</label>
+        </div>
+        <div class="PanelFieldValue">
+            <input type="text" value="" maxlength="100" size="50" id="MySetting" ng-model="serializedSettings.PhilsNewONe">
+        </div>
+    </div>
+</div>

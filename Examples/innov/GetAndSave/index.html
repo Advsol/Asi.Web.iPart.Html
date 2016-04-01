@@ -1,0 +1,55 @@
+﻿<!-- inject:js -->
+<script src="~/Areas/innov/GetAndSave/app.module.js" defer></script>
+<script src="~/Areas/innov/GetAndSave/MyController.js" defer></script>
+<!-- endinject -->
+
+<div data-ng-controller="MyController as vm">
+    <div class="PanelField Left" >
+        <div style="display: inline;">
+            <label for="FirstName" class="Required">First Name</label>
+        </div>
+        <div class="PanelFieldValue">
+            <input id="FirstName" type="text" name="batchDate" data-ng-model="vm.party.PersonName.FirstName" data-ng-change="vm.partyDataChanged()" class="text-box single-line">
+        </div>
+    </div>
+    <div class="PanelField Left">
+        <div style="display: inline;">
+            <label for="LastName" class="Required">Last Name</label>
+        </div>
+        <div class="PanelFieldValue">
+            <input id="LastName" type="text" name="batchDate" data-ng-model="vm.party.PersonName.LastName" data-ng-change="vm.partyDataChanged()" class="text-box single-line">
+        </div>
+    </div>
+    <div class="PanelField Left">
+        <div style="display: inline;">
+            <label for="Organization">Organization</label>
+        </div>
+        <div class="PanelFieldValue InputXLargeWrapper">
+            <input id="Organization" type="text" name="batchDate" data-ng-model="vm.party.PrimaryOrganization.Name" data-ng-change="vm.partyDataChanged()" class="text-box single-line">
+        </div>
+    </div>
+    <div ng-repeat="address in vm.party.Addresses">
+        <div class="PanelField Left">
+            <div style="display: inline;">
+                <label for="Address">Address</label>
+            </div>
+            <div class="PanelFieldValue">
+                <input id="Address" type="text" data-ng-model="address.Address.AddressLines[0]" data-ng-change="vm.partyDataChanged()" class="text-box single-line">
+            </div>
+        </div>
+        <div class="PanelField Left">
+            <div style="display: inline;">
+                <label for="PostalCode">Postal Code</label>
+            </div>
+            <div class="PanelFieldValue">
+                <input id="PostalCode" type="text" data-ng-model="address.Address.PostalCode" data-ng-change="vm.partyDataChanged()" class="text-box single-line">
+            </div>
+        </div>
+   </div>
+
+    <input type="button" ng-click="vm.saveParty()" id="save" value="Save Party" class="TextButton PrimaryButton">
+    <span style="color: red;">{{vm.successAlert}}</span>
+
+    <br />
+        Raw Party Data: <pre>{{vm.party | json}}</pre>
+</div>

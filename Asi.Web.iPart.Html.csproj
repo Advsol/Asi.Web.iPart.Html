@@ -20,11 +20,12 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Examples\helloworld\index.html" />
+    <Content Include="Examples\innov\angularDemo\config.html" />
+    <Content Include="Examples\innov\angularDemo\index.html" />
+    <Content Include="Examples\innov\angularDemo\scripts\config.js" />
+    <Content Include="Examples\innov\angularDemo\scripts\index.js" />
+    <Content Include="Examples\innov\GetAndSave\config.html" />
+    <Content Include="Examples\innov\GetAndSave\index.html" />
+    <Content Include="Examples\innov\helloworld\config.html" />
+    <Content Include="Examples\innov\helloworld\index.html" />
+    <Content Include="Examples\innov\helloworld\scripts\index.js" />
+    <Content Include="Examples\innov\JsonDemo\config.html" />
+    <Content Include="Examples\innov\JsonDemo\index.html" />
+    <Content Include="Examples\innov\Party\AddressEdit\3rdParty\ui-grid.js" />
+    <Content Include="Examples\innov\Party\AddressEdit\All Members_Updated IQA.xml" />
+    <Content Include="Examples\innov\Party\AddressEdit\index.html" />
+    <Content Include="Examples\innov\Party\AddressEdit\Party Edit_ContentType_Import.xml" />
+    <Content Include="Examples\innov\Party\AddressEdit\templates\EditParty.html" />
+    <Content Include="Examples\innov\Party\AddressEdit\templates\IQAResults.html" />
     <Content Include="Examples\ipartconfiguration\config.html" />
     <Content Include="Examples\ipartconfiguration\index.html" />
     <Content Include="Examples\knockoutcdn\code.js" />
@@ -62,6 +80,7 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\version.json" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -886,6 +905,23 @@
     <TypeScriptCompile Include="app\fundraising\donationentry\services\donationEntry.state.service.ts" />
     <TypeScriptCompile Include="Examples\helloworld\app.module.ts" />
     <TypeScriptCompile Include="Examples\helloworld\helloWorldController.ts" />
+    <TypeScriptCompile Include="Examples\innov\GetAndSave\app.module.ts" />
+    <TypeScriptCompile Include="Examples\innov\GetAndSave\config.ts" />
+    <TypeScriptCompile Include="Examples\innov\GetAndSave\MyController.ts" />
+    <TypeScriptCompile Include="Examples\innov\JsonDemo\app.module.ts" />
+    <TypeScriptCompile Include="Examples\innov\JsonDemo\config.ts" />
+    <TypeScriptCompile Include="Examples\innov\JsonDemo\ExampleService.ts" />
+    <TypeScriptCompile Include="Examples\innov\JsonDemo\index.myController.ts" />
+    <TypeScriptCompile Include="Examples\innov\JsonDemo\model.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\addressEdit.angularGlobals.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\addresseditcore\addressEdit.routes.IAddressEditStateParams.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\addresseditcore\addressEdit.routes.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\addresseditcore\addressEdit.module.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\controllers\editController.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\controllers\partyController.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\models\models.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\services\addressEdit.state.service.ts" />
+    <TypeScriptCompile Include="Examples\innov\Party\AddressEdit\services\addressEdit.service.ts" />
     <TypeScriptCompile Include="Examples\ipartconfiguration\app.module.ts" />
     <TypeScriptCompile Include="Examples\ipartconfiguration\config.ts" />
     <TypeScriptCompile Include="Examples\ipartconfiguration\MyController.ts" />
@@ -899,7 +935,12 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jasmine\jasmine.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\ui-grid\ui-grid.d.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\typings\angular-ui\" />
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -915,7 +956,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>4565</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

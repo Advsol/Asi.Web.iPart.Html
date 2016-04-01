@@ -1,0 +1,34 @@
+﻿<script src="~/Areas/innov/angularDemo/scripts/config.js" defer></script>
+
+<div data-ng-controller="ConfigController">
+    <div class="PanelField Left">
+        <div style="display: inline;">
+            <label for="MySetting">Example Setting</label>
+        </div>
+        <div class="PanelFieldValue">
+            <input type="text" value="" maxlength="100" size="50" id="MySetting" ng-model="serializedSettings.MySetting">
+        </div>
+    </div>
+    <!--MultiSelectStart-->
+    <div class="PanelField Left">
+        <div style="display: inline;">
+            <label for="multipleSelect">MultiSelect Setting</label>
+        </div>
+        <div class="PanelFieldValue">
+            <select id="multipleSelect" ng-model="serializedSettings.multipleSelect" multiple>
+                <option value="option-1">Option 1</option>
+                <option value="option-2">Option 2</option>
+                <option value="option-3">Option 3</option>
+            </select>
+        </div>
+    </div>
+    <!--MultiSelectEnd-->
+    <div class="PanelField Left">
+        <div style="display: inline;">
+            <label for="MySetting">Innovations example</label>
+        </div>
+        <div class="PanelFieldValue">
+            <input type="text" value="" maxlength="100" size="50" id="MySetting" ng-model="serializedSettings.Innov">
+        </div>
+    </div>
+</div>
